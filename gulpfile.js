@@ -1,7 +1,10 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
-const imagemin = require('gulp-imagemin');
-const terser = require('gulp-terser');
+import gulp from 'gulp';
+import sassModule from 'gulp-sass';
+import dartSass from 'sass';
+import imagemin from 'gulp-imagemin';
+import terser from 'gulp-terser';
+
+const sass = sassModule(dartSass);
 
 function compilaSass() {
     return gulp.src('./src/styles/**/*.scss')
@@ -21,17 +24,21 @@ function comprimeJavascript() {
         .pipe(gulp.dest('./dist/js'));
 }
 
-
 function watchTasks() {
     gulp.watch('./src/styles/**/*.scss', compilaSass);
     gulp.watch('./src/images/**/*', comprimeImagens);
     gulp.watch('./src/scripts/**/*.js', comprimeJavascript);
 }
 
-exports.compilaSass = compilaSass;
-exports.comprimeImagens = comprimeImagens;
-exports.comprimeJavascript = comprimeJavascript;
-exports.watch = watchTasks;
+export {
+    compilaSass,
+    comprimeImagens,
+    comprimeJavascript,
+    watchTasks as watch
+};
 
-exports.default = gulp.parallel(compilaSass, comprimeImagens, comprimeJavascript, watchTasks);
+export default gulp.parallel(compilaSass, comprimeImagens, comprimeJavascript, watchTasks);
+
+
+
 

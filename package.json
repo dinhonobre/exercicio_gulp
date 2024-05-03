@@ -1,7 +1,8 @@
 {
+  "type": "module",
   "name": "exercicio-gulp",
   "version": "1.0.0",
-  "main": "gulp.js",
+  "main": "gulp.mjs",
   "scripts": {
     "start": "gulp",
     "compilaSass": "gulp compilaSass",
@@ -15,11 +16,9 @@
   "description": "",
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-imagemin": "^9.0.0",
+    "gulp-imagemin": "^7.1.0",
     "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^3.0.0",
     "gulp-terser": "^2.1.0",
-    "gulp-watch": "^5.0.1",
-    "sass": "^1.75.0"
+    "sass": "^1.76.0"
   }
 }
